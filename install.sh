@@ -83,8 +83,6 @@ function clean() {
 function install_zsh() {
     sudo nala install zsh -y;
     cd "$LOCAL_HOME" || echo "unable to cd in home dir"; 
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-    exec zsh;
 
     
 
