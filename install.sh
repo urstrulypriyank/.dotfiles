@@ -43,7 +43,7 @@ function setup_nala () {
 function installation (){
 
 echo "Installing Some essentail tools"
-sudo nala install curl neofetch vlc gimp ubuntu-restricted-extras gnome-tweak-tool apt-transport-https firefox stow -y
+sudo nala install curl neofetch vlc gimp ubuntu-restricted-extras gnome-shell-extensions gnome-tweak-tool apt-transport-https firefox stow -y
 
 echo 'Installing latest git and python-3' 
 sudo add-apt-repository ppa:git-core/ppa -y
@@ -71,7 +71,8 @@ docker --version
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
-
+ 
+ install_zsh;
 }
 
 function clean() {
@@ -79,12 +80,27 @@ function clean() {
     sudo nala autoremove;
     sudo nala clean;
 }
+function install_zsh() {
+    sudo nala install zsh -y;
+    cd "$LOCAL_HOME" || echo "unable to cd in home dir"; 
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    exec zsh;
+
+    
+
+
+}
 
 function git-setup () {
     cd "$LOCAL_HOME" || echo "unable to cd in home dir"; 
     git clone https://github.com/urstrulypriyank/.dotfiles
     cd .dotfiles;
-    stow 
+    stow bash 
+    # stow code 
+    stow git 
+    stow zsh 
+    stow fonts
+
 }
 
 
@@ -97,8 +113,9 @@ function main() {
     greet;
     installation;
     git-setup;
+
     clean;
-    
+    chsh -s $(which zsh);
 
 }
 
