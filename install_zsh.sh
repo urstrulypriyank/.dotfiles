@@ -14,7 +14,7 @@ function install_zsh() {
     echo "Changing default shell to zsh ";
     chsh -s $(which zsh);
     
-    
+    echo ~;
     rm -rf ~/.zshrc || echo "zshrc not remove might be not present "
     rm -rf ~/.bashrc || echo "bashrc not  remove might not exist initially"
 
