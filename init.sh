@@ -1,5 +1,5 @@
- #!/bin/bin/bash
- LOCAL_HOME
+ #!/bin/bash
+ LOCAL_HOME=$HOME
 
     sudo nala install zsh -y;
     cd "$LOCAL_HOME" || echo "unable to cd in home dir"; 
