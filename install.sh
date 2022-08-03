@@ -91,13 +91,14 @@ function install_zsh() {
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
     # ohmyzsh syntax higlight 
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    
+    # ohmyzsh powerlevel10k 
+    git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
     echo "Changing default shell to zsh ";
     
     echo ~;
-    rm -rf ~/.zshrc || echo "zshrc not remove might be not present "
-    rm -rf ~/.bashrc || echo "bashrc not  remove might not exist initially"
+    #rm -rf ~/.zshrc || echo "zshrc not remove might be not present "
+    #rm -rf ~/.bashrc || echo "bashrc not  remove might not exist initially"
 
 }
 
