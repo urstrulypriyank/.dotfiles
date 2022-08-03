@@ -1,4 +1,6 @@
- #!/bin/bash
+ #!/bin/bin/bash
+ LOCAL_HOME
+
     sudo nala install zsh -y;
     cd "$LOCAL_HOME" || echo "unable to cd in home dir"; 
     # ohmyzsh installation 
