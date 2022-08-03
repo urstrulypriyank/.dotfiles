@@ -111,6 +111,8 @@ function git-setup () {
     stow zsh 
     stow fonts
 
+
+    sudo chsh -s $(which zsh) $USER;
 }
 
 
@@ -130,4 +132,3 @@ function main() {
 }
 
 main;
-chsh -s $(which zsh);
