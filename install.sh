@@ -86,7 +86,7 @@ function install_zsh() {
     sudo nala install zsh -y;
     cd "$LOCAL_HOME" || echo "unable to cd in home dir"; 
     # ohmyzsh installation 
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && exit;
     # ohmyzsh autosuggestion plugin 
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
     # ohmyzsh syntax higlight 
@@ -97,8 +97,8 @@ function install_zsh() {
     echo "Changing default shell to zsh ";
     
     echo ~;
-    #rm -rf ~/.zshrc || echo "zshrc not remove might be not present "
-    #rm -rf ~/.bashrc || echo "bashrc not  remove might not exist initially"
+    rm -rf ~/.zshrc || echo "zshrc not remove might be not present "
+    rm -rf ~/.bashrc || echo "bashrc not  remove might not exist initially"
 
 }
 
@@ -107,10 +107,10 @@ function git-setup () {
     install_zsh;
     cd "$LOCAL_HOME" 
     cd .dotfiles 
-    stow --override bash 
-    stow  --override git 
-    stow --overridezsh 
-    stow --override fonts
+    stow bash 
+    stow git 
+    stow zsh 
+    stow fonts
 
 
     sudo chsh -s $(which zsh) $USER;
