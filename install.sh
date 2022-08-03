@@ -107,10 +107,10 @@ function git-setup () {
     install_zsh;
     cd "$LOCAL_HOME" 
     cd .dotfiles 
-    stow bash 
-    stow git 
-    stow zsh 
-    stow fonts
+    stow --override bash 
+    stow  --override git 
+    stow --overridezsh 
+    stow --override fonts
 
 
     sudo chsh -s $(which zsh) $USER;
