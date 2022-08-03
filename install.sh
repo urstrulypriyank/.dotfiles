@@ -85,7 +85,9 @@ function clean() {
 function git-setup () {
     cd "$LOCAL_HOME" || echo "unable to cd in home dir"; 
     git clone https://github.com/urstrulypriyank/.dotfiles && cd .dotfiles;
-    /bin/bash ./install_zsh;
+    /bin/bash ./install_zsh.sh;
+    cd "$LOCAL_HOME" 
+    cd .dotfiles 
     stow bash 
     stow git 
     stow zsh 
