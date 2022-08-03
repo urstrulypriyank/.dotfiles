@@ -94,7 +94,6 @@ function install_zsh() {
     
 
     echo "Changing default shell to zsh ";
-    chsh -s $(which zsh);
     
     echo ~;
     rm -rf ~/.zshrc || echo "zshrc not remove might be not present "
@@ -112,6 +111,7 @@ function git-setup () {
     stow zsh 
     stow fonts
 
+    exec bash chsh -s $(which zsh);
 }
 
 
