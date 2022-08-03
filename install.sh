@@ -99,6 +99,9 @@ function git-setup () {
     git clone https://github.com/urstrulypriyank/.dotfiles
     # installing zsh 
     install_zsh; 
+    rm -rf ~/.zshrc || echo "zshrc not remove might be not present "
+    rm -rf ~/.bashrc || echo "bashrc not  remove might not exist initially"
+
     cd .dotfiles;
     stow bash 
     # stow code 
